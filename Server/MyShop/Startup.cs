@@ -12,11 +12,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using VideoList.Services;
+using MyShop.Services;
 
-namespace VideoList
+namespace MyShop
 {
     public class Startup
     {
@@ -32,10 +30,8 @@ namespace VideoList
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             // Adds the dependencies for the dependency injection of asp.net core
-            services.AddScoped<IUserService, UserService>();
-            services.AddScoped<ISerieService, SerieService>();
-            services.AddScoped<IVideoService, VideoService>();
-            services.AddScoped<ICryptographService, CryptographService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IOrderService, OrderService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
