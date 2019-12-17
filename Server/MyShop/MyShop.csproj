@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VideoList.Services\VideoList.Services.csproj" />
+    <ProjectReference Include="..\MyShop.Services\MyShop.Services.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,7 +6,7 @@ module.exports = {
     output: {
         filename: "./wwwroot/app.js",
         publicPath: "/",
-        path: __dirname + "/../Server/VideoList"
+        path: __dirname + "/../Server/MyShop"
     },
     resolve: {
         extensions: ['.ts', '.js', '.tsx']
