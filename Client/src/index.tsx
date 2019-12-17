@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { combinedReducers } from "./services/Common/combineReducers";
-import { NotFound, App, $AddSerie, $SeriesOverview, $Login, $VideoOverview, $AddVideo, $ViewVideo } from "./components";
+import { NotFound, App } from "./components";
 
 const store = createStore(combinedReducers, composeWithDevTools());
 const routing = (
@@ -13,12 +13,6 @@ const routing = (
         <HashRouter>
             <Switch>
                 <Route exact path="/" component={App} />
-                <Route path="/Login" component={$Login} />
-                <Route path="/SeriesOverview" component={$SeriesOverview} />
-                <Route path="/AddSerie" component={$AddSerie} />
-                <Route path="/VideoOverview/:seriesId" component={$VideoOverview} />
-                <Route path="/AddVideo/:seriesId" component={$AddVideo} />
-                <Route path="/ViewVideo/:videoId" component={$ViewVideo} />
                 <Route component={NotFound} />
             </Switch>
         </HashRouter>

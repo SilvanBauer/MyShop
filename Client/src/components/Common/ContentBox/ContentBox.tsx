@@ -1,5 +1,5 @@
 import * as React from "react";
-import { $Navigation, Footer } from "../";
+import { Navigation, Footer } from "../";
 
 import "./ContentBox.scss";
 
@@ -21,12 +21,11 @@ export class ContentBox extends React.Component<IContentBoxOwnProps> {
         return (
             <div className="main">
                 <div style={{ flexGrow: 1 }} />
-                <div style={{ width: "100%", maxWidth: "800px" }}>
-                    <$Navigation activeItem={activeItem} />
+                <div style={{ width: "100%", maxWidth: "1200px" }}>
+                    <Navigation activeItem={activeItem} />
                     <div className="content" style={style}>
                         {children}
                     </div>
-                    <Footer />
                 </div>
                 <div style={{ flexGrow: 1 }} />
             </div>

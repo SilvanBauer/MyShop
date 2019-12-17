@@ -11,7 +11,12 @@ export class NotFound extends React.Component {
     public render(): React.ReactNode {
         return (
             <ContentBox activeItem={undefined} style={{ textAlign: "center" }}>
-                <h1>404 Not Found</h1>
+                <div style={{ display: "flex", flexDirection: "column", height: 500 }}>
+                    <div style={{ flexGrow: 1 }} />
+                    <div style={{ fontWeight: "bold", fontSize: 30 }}>404 Page not found</div>
+                    <div style={{ fontSize: 18 }}>You can shop our products in the Products tab!</div>
+                    <div style={{ flexGrow: 1 }} />
+                </div>
             </ContentBox>
         );
     }

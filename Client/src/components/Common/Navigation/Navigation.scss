@@ -2,22 +2,22 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    background: linear-gradient(to bottom, #cad0ee 0%, #afb4ce 100%);
+    background: linear-gradient(to bottom, #5267cf 0%, #202f7e 100%);
 }
 
 .headerItem {
-    background: linear-gradient(to bottom, #cad0ee 0%, #afb4ce 100%);
+    background: linear-gradient(to bottom, #5267cf 0%, #202f7e 100%);
     padding: 5px;
     cursor: pointer;
-    color: black;
+    color: white;
     text-decoration: none;
     border-right: 1px solid #8c94b6;
 
     &:hover {
-        background: linear-gradient(to top, #cad0ee 0%, #afb4ce 100%);
+        background: linear-gradient(to top, #5267cf 0%, #202f7e 100%);
     }
 }
 
 .headerItemActive {
-    background: linear-gradient(to bottom, #8c94b6 0%, #a3acd3 100%);
+    background: linear-gradient(to bottom, #2e3c82 0%, #0e184f 100%);
 }

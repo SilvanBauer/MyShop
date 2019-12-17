@@ -1,4 +1,1 @@
-export * from "./IReview";
-export * from "./ISerie";
-export * from "./IUser";
-export * from "./IVideo";
+export * from "./IProduct";
