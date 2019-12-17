@@ -1,0 +1,26 @@
+.inputAndLabel {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-size: 10px;
+}
+
+.inputComponent {
+    border: 0px;
+    border-bottom: 1px solid #bebebe;
+    width: 100%;
+    flex-grow: 1;
+    outline: none;
+    transition: border 0.4s;
+    
+    &:hover {
+        background: #f0f0f0;
+    }
+
+    &:focus {
+        border-bottom: 2px solid #8c94b6;
+        background: #f0f0f0;
+    }
+}

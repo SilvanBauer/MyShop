@@ -1,0 +1,25 @@
+.selectAndLabel {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-size: 10px;
+}
+
+.selectComponent {
+    border: 0px;
+    border-bottom: 1px solid #bebebe;
+    width: 100%;
+    flex-grow: 1;
+    outline: none;
+    transition: border 0.4s;
+    
+    &:hover {
+        background: #f0f0f0;
+    }
+
+    &:focus {
+        background: #f0f0f0;
+    }
+}

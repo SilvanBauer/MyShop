@@ -1,0 +1,37 @@
+{
+  "name": "my_shop",
+  "version": "1.0.0",
+  "description": "My Shop",
+  "main": "index.js",
+  "author": "Silvan Bauer",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "watch": "webpack"
+  },
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-redux": "^7.1.2",
+    "@types/react-router-dom": "^5.1.0",
+    "axios": "^0.19.0",
+    "css-loader": "^3.2.0",
+    "immutable": "^4.0.0-rc.12",
+    "node-sass": "^4.12.0",
+    "react-router-dom": "^5.1.2",
+    "redux-devtools-extension": "^2.13.8",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
+  }
+}
