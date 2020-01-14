@@ -7,6 +7,7 @@ interface ITextBoxOwnProps {
     value?: string;
     style?: React.CSSProperties;
     type?: string;
+    placeholder?: string;
     onChange?: (value: string) => void;
 }
 
@@ -23,12 +24,12 @@ export class TextBox extends React.Component<ITextBoxOwnProps> {
     }
 
     public render(): React.ReactNode {
-        const { label, value, style, type } = this.props;
+        const { label, value, style, type, placeholder } = this.props;
 
         return (
             <div className="inputAndLabel" style={style}>
                 <div className="label">{label}</div>
-                <input type={type} className="inputComponent" value={value} onChange={this.onChange} />
+                <input type={type} className="inputComponent" value={value} onChange={this.onChange} placeholder={placeholder} />
             </div>
         );
     }

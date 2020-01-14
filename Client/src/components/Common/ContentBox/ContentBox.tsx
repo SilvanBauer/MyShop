@@ -26,6 +26,7 @@ export class ContentBox extends React.Component<IContentBoxOwnProps> {
                     <div className="content" style={style}>
                         {children}
                     </div>
+                    <div style={{ textAlign: "center" }}>Silvan Bauer © 2020</div>
                 </div>
                 <div style={{ flexGrow: 1 }} />
             </div>
