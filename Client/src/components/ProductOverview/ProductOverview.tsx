@@ -5,6 +5,8 @@ import { Product, IDispatchProps, IProduct, loadProducts, unloadProducts, connec
 import { ContentBox, Loading } from "../Common";
 import { ProductItem } from "./ProductItem/ProductItem";
 
+import "./ProductOverview.scss";
+
 interface IProductOverviewStateProps {
     products: List<Product>
 }
@@ -52,5 +54,5 @@ const mapStateToProps = (store: any): IProductOverviewStateProps => {
     return {
         products: store.products
     };
-}
+};
 export const $ProductOverview = connectComponent(mapStateToProps, ProductOverview);

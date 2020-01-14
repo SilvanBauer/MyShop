@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
-import { productOverviewReducer } from "..";
+import { productOverviewReducer, productViewReducer } from "..";
 
 // Combines all redux reducers to one because there only needs to be one store
 export const combinedReducers = combineReducers({
-    products: productOverviewReducer
+    products: productOverviewReducer,
+    product: productViewReducer
 });
