@@ -25,7 +25,7 @@ export class ProductView extends React.Component<IProductOverviewProps> {
 
         axios.get(`http://localhost:5000/api/Product/${productId}`)
             .then((value: AxiosResponse<IProduct>) => {
-                dispatch(loadProduct(value.data));
+                dispatch(loadProduct(value.data ? value.data : { id: 0 } as IProduct));
             });
     }
 
@@ -41,16 +41,24 @@ export class ProductView extends React.Component<IProductOverviewProps> {
         return (
             <ContentBox activeItem="Products">
                 {product ?
-                    <div style={{ display: "flex", flexDirection: "row", marginTop: 20 }}>
-                        <div style={{ flexBasis: 200 }}>
-                            <div>{product.name}</div>
-                            <img style={{ width: 200, height: 200 }} src={require(`../../images/${product.image}`)} />
-                            <div>{product.price}.-</div>
-                            <Button>Add to Cart</Button>
+                    product.id !== 0 ?
+                        <div style={{ display: "flex", flexDirection: "row", marginTop: 20 }}>
+                            <div style={{ flexBasis: 200 }}>
+                                <div>{product.name}</div>
+                                <img style={{ width: 200, height: 200 }} src={require(`../../images/${product.image}`)} />
+                                <div>{product.price}.-</div>
+                                <Button>Add to Cart</Button>
+                            </div>
+                            <div style={{ flexGrow: 1, marginLeft: 30, marginRight: 30 }}>
+                                {product.description}
+                            </div>
                         </div>
-                        <div style={{ flexGrow: 1, marginLeft: 30, marginRight: 30 }}>
-                            {product.description}
-                        </div>
+                    :
+                    <div style={{ display: "flex", flexDirection: "column", height: 500, textAlign: "center" }}>
+                        <div style={{ flexGrow: 1 }} />
+                        <div style={{ fontWeight: "bold", fontSize: 30 }}>404 Product not found</div>
+                        <div style={{ fontSize: 18 }}>Please choose another of our amazing products!</div>
+                        <div style={{ flexGrow: 1 }} />
                     </div>
                 : <Loading />}
             </ContentBox>
