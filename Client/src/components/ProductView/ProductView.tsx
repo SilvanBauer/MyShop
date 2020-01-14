@@ -45,7 +45,7 @@ export class ProductView extends React.Component<IProductOverviewProps> {
                         <div style={{ display: "flex", flexDirection: "row", marginTop: 20 }}>
                             <div style={{ flexBasis: 200 }}>
                                 <div>{product.name}</div>
-                                <img style={{ width: 200, height: 200 }} src={require(`../../images/${product.image}`)} />
+                                <img style={{ width: 200, height: 200 }} src={product.image} />
                                 <div>{product.price}.-</div>
                                 <Button>Add to Cart</Button>
                             </div>

@@ -41,8 +41,8 @@ module.exports = {
                 test: /\.(png|jpe?g|gif)$/i,
                 loader: 'file-loader',
                 options: {
-                    outputPath: './wwwroot/images',
-                    publicPath: './wwwroot/images',
+                    outputPath: './wwwroot',
+                    publicPath: './',
                     name: '[name].[ext]'
                 }
             }
