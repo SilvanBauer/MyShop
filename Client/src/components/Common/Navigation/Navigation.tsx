@@ -1,6 +1,6 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
-import { INavigationItem, getNavigationItems } from "../../../services";
+import { INavigationItem, getNavigationItems, getRightNavigationItems } from "../../../services";
 
 import "./Navigation.scss";
 
@@ -18,6 +18,7 @@ export class Navigation extends React.Component<INavigationOwnProps> {
         const { activeItem } = this.props;
         // Gets the navigation items to generate the navigation
         const items = getNavigationItems();
+        const rightItems = getRightNavigationItems();
 
         return (
             <div className="headerComponent">
@@ -30,7 +31,16 @@ export class Navigation extends React.Component<INavigationOwnProps> {
                         {nI.header}
                     </NavLink>
                 ))}
-                <div style={{ flexGrow: 1 }} />             
+                <div style={{ flexGrow: 1 }} />
+                {rightItems.map((nI: INavigationItem, index: number) => ( // Generates the navigation items from the items
+                    <NavLink
+                        key={nI.header}
+                        to={nI.link}
+                        className={"headerItem headerItemLeft" + (activeItem === nI.header ? " headerItemActive" : "")}
+                    >
+                        {nI.header}
+                    </NavLink>
+                ))}
             </div>
         );
     }

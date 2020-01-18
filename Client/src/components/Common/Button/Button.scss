@@ -12,3 +12,13 @@
         background: #bebebe;
     }
 }
+
+.buttonReadonly {
+    background: #ababab;
+    color: gray;
+    cursor: default;
+
+    &:hover {
+        background: #ababab;
+    }
+}

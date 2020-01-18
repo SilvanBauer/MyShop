@@ -1,0 +1,16 @@
+.productInCart {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    padding: 10;
+    margin: 5;
+}
+
+.productInCartX {
+    color: red;
+    cursor: pointer;
+
+    &:hover {
+        color: #950000;
+    }
+}

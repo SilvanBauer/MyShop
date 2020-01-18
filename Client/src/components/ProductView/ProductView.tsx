@@ -1,31 +1,42 @@
 import * as React from "react";
 import { default as axios, AxiosResponse } from "axios";
-import { Product, IDispatchProps, IProduct, loadProduct, unloadProduct, connectComponent } from "../../services";
-
-import "./ProductView.scss";
+import { List } from "immutable";
+import { Product, IDispatchProps, IProduct, loadProduct, unloadProduct, connectComponent, addProductToCart } from "../../services";
 import { ContentBox, Loading, Button } from "../Common";
 
-interface IProductOverviewOwnProps {
+import "./ProductView.scss";
+
+interface IProductViewOwnProps {
     match: any;
 }
-interface IProductOverviewStateProps {
+interface IProductViewStateProps {
     product: Product;
+    shoppingCart: List<Product>;
+}
+interface IProductViewState {
+    productAlreadyInCart: boolean;
 }
 
-type IProductOverviewProps = IProductOverviewOwnProps & IProductOverviewStateProps & IDispatchProps;
+type IProductViewProps = IProductViewOwnProps & IProductViewStateProps & IDispatchProps;
 
-export class ProductView extends React.Component<IProductOverviewProps> {
+export class ProductView extends React.Component<IProductViewProps, IProductViewState> {
     constructor(props, context) {
         super(props, context);
+
+        this.state = {
+            productAlreadyInCart: undefined
+        }
     }
 
     public componentDidMount(): void {
-        const { dispatch, match } = this.props;
+        const { dispatch, match, shoppingCart } = this.props;
         const { productId } = match.params;
 
         axios.get(`http://localhost:5000/api/Product/${productId}`)
             .then((value: AxiosResponse<IProduct>) => {
                 dispatch(loadProduct(value.data ? value.data : { id: 0 } as IProduct));
+
+                this.setState({ productAlreadyInCart: shoppingCart.filter((p: Product) => p.id === value.data.id).count() > 0 });
             });
     }
 
@@ -35,8 +46,17 @@ export class ProductView extends React.Component<IProductOverviewProps> {
         dispatch(unloadProduct());
     }
 
+    private addToCartClick = (): void => {
+        const { dispatch, product } = this.props;
+
+        dispatch(addProductToCart(product));
+
+        this.setState({ productAlreadyInCart: true });
+    }
+
     public render(): React.ReactNode {
         const { product } = this.props;
+        const { productAlreadyInCart } = this.state;
 
         return (
             <ContentBox activeItem="Products">
@@ -47,7 +67,7 @@ export class ProductView extends React.Component<IProductOverviewProps> {
                                 <div>{product.name}</div>
                                 <img style={{ width: 200, height: 200 }} src={product.image} />
                                 <div>{product.price}.-</div>
-                                <Button>Add to Cart</Button>
+                                <Button readonly={productAlreadyInCart} onClick={this.addToCartClick}>{productAlreadyInCart ? "Already in cart" : "Add to Cart"}</Button>
                             </div>
                             <div style={{ flexGrow: 1, marginLeft: 30, marginRight: 30 }}>
                                 {product.description}
@@ -66,9 +86,10 @@ export class ProductView extends React.Component<IProductOverviewProps> {
     }
 }
 
-const mapStateToProps = (store: any): IProductOverviewStateProps => {
+const mapStateToProps = (store: any): IProductViewStateProps => {
     return {
-        product: store.product
+        product: store.product,
+        shoppingCart: store.shoppingCart
     };
 };
 export const $ProductView = connectComponent(mapStateToProps, ProductView);
