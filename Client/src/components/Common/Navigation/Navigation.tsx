@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { INavigationItem, getNavigationItems, getRightNavigationItems } from "../../../services";
 
 import "./Navigation.scss";
+import { $ProductsInCartInfo } from "./ProductsInCartInfo/ProductsInCartInfo";
 
 interface INavigationOwnProps {
     activeItem: string;
@@ -22,7 +23,7 @@ export class Navigation extends React.Component<INavigationOwnProps> {
 
         return (
             <div className="headerComponent">
-                {items.map((nI: INavigationItem, index: number) => ( // Generates the navigation items from the items
+                {items.map((nI: INavigationItem) => ( // Generates the navigation items from the items
                     <NavLink
                         key={nI.header}
                         to={nI.link}
@@ -32,7 +33,8 @@ export class Navigation extends React.Component<INavigationOwnProps> {
                     </NavLink>
                 ))}
                 <div style={{ flexGrow: 1 }} />
-                {rightItems.map((nI: INavigationItem, index: number) => ( // Generates the navigation items from the items
+                <$ProductsInCartInfo style={{ padding: 5, marginRight: 10, color: "white" }} />
+                {rightItems.map((nI: INavigationItem) => ( // Generates the navigation items from the items
                     <NavLink
                         key={nI.header}
                         to={nI.link}

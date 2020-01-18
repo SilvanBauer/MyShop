@@ -25,7 +25,7 @@ const addProduct = (product: Product, sliceState: List<Product>): List<Product> 
 };
 
 const removeProduct = (id: number, sliceState: List<Product>): List<Product> => {
-    const product = sliceState.filter((p: Product) => p.id === id)[0];
+    const product = sliceState.filter((p: Product) => p.id === id).first() as Product;
     const productIndex = sliceState.indexOf(product);
 
     return sliceState.remove(productIndex);

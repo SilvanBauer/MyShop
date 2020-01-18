@@ -58,12 +58,12 @@ export class ProductOverview extends React.Component<IProductOverviewProps, IPro
 
         return (
             <ContentBox activeItem="Products">
-                <div style={{ display: "flex", flexDirection: "row", width: 1100, margin: "auto" }}>
+                <div style={{ display: "flex", flexDirection: "row", maxWidth: 1100, margin: "auto" }}>
                     <TextBox style={{ flexGrow: 1, marginRight: 10 }} type="text" placeholder="Search" value={search} onChange={this.onSearchChange} />
                     <Button onClick={this.onSearchClick}>Search</Button>
                 </div>
                 {productsToDisplay ?
-                    <div className="overview" style={{ overflow: "auto", margin: "auto", marginTop: 10, width: 1000, height: 550 }}>
+                    <div className="overview" style={{ overflow: "auto", margin: "auto", marginTop: 10, maxWidth: 1000, height: 550 }}>
                         {productsToDisplay.map((p: Product) => (
                             <ProductItem key={p.id} product={p} />
                         ))}

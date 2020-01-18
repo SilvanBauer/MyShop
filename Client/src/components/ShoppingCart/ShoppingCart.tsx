@@ -26,7 +26,7 @@ export class ShoppingCart extends React.Component<IShoppingCartProps> {
                 {shoppingCart.count() > 0 ?
                     <div>
                         Shopping Cart
-                        {shoppingCart.map((p: Product) => <ProductInCart key={p.id} product={p} dispatch={dispatch} />)}
+                        <div style={{ overflow: "auto", height: 400 }}>{shoppingCart.map((p: Product) => <ProductInCart key={p.id} product={p} dispatch={dispatch} />)}</div>
                         <div style={{ float: "right" }}>
                             <Button style={{ marginTop: 15 }}>
                                 <NavLink style={{ textDecoration: "none", color: "black" }} to="/Ordered">Place Order</NavLink>
